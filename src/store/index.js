@@ -5,8 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    username: 'ifer'
   },
   mutations: {
+    changeUserName(state, uname) {
+      state.username = uname;
+    }
   },
   actions: {
   },
