@@ -1,6 +1,7 @@
 <template>
   <div>
     Child: {{msg}}
+    <button @click="handleClick">子改父</button>
   </div>
 </template>
 
@@ -17,6 +18,10 @@ export default {
   methods: {
     changeData() {
       this.msg = '~~~~~';
+    },
+    handleClick() {
+      // 可以拿到父亲的数据，就可以拿到父亲的方法，不再演示了
+      this.$parent.msg = '~~~~~~~~~~~~';
     }
   }
 }

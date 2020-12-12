@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    {{msg}}
     <child ref="c"/>
     <button @click="handleClick">change</button>
   </div>
@@ -14,11 +15,18 @@ export default {
   components: {
     Child
   },
+  data() {
+    return  {
+      msg: 'H'
+    }
+  },
   methods: {
     handleClick() {
       // 操作数据
       // this.$refs.c.msg = '~~~~~~';
-      this.$refs.c.changeData();
+      // this.$refs.c.changeData();
+      // console.log(this.$children[0] === this.$refs.c); // true
+      this.$children[0].changeData();
     }
   }
 }
