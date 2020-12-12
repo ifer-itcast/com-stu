@@ -1,18 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <child1 :username="username" :age="age"/>
+    <button @click="changeData">改变数据</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Child1 from './components/Child1.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      username: 'ifer',
+      age: 18
+    }
+  },
   components: {
-    HelloWorld
+    Child1
+  },
+  methods: {
+    changeData() {
+      this.username = '~~~~~~~~';
+      this.age = '188888888';
+    }
   }
+  
 }
 </script>
 
