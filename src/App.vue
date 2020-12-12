@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    {{msg}}
+    <child @changeMsg="changeMsg"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Child from '@/components/Child';
 export default {
   name: 'App',
+  data() {
+    return {
+      msg: "父亲的 Hello World"
+    }
+  },
   components: {
-    HelloWorld
+    Child
+  },
+  methods: {
+    changeMsg(childData) {
+      this.msg = childData;
+    }
   }
 }
 </script>
