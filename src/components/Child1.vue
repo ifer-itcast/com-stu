@@ -1,8 +1,7 @@
 <template>
   <div>
     Child1
-    {{$attrs.username}}
-    <child2 v-bind="$attrs"/>
+    <child2 v-on="$listeners"/>
   </div>
 </template>
 
@@ -17,13 +16,9 @@ export default {
     return {
     }
   },
-  // props: ['username'],
-
-  inheritAttrs: false, // 属性不想在组件的根元素上展示
 
   methods: {},
   mounted() {
-    console.log(this.$attrs);
   }
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
   <div>
-    Child2: {{$attrs.age}}
+    Child2
+    <button @click="handleClick">改变爷爷的数据</button>
   </div>
 </template>
 
@@ -12,10 +13,16 @@ export default {
     return {
     }
   },
-  inheritAttrs: false,
-  methods: {},
+  methods: {
+    handleClick() {
+      // 第一种触发的方式
+      // this.$listeners.test1('~~~~~~~~')
+      // 第二种触发的方式
+      this.$emit('test1', '~~~~~~~~');
+    }
+  },
   mounted() {
-    console.log(this.$attrs)
+    
   }
 }
 </script>

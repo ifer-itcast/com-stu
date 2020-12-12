@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <child1 :username="username" :age="age"/>
-    <button @click="changeData">改变数据</button>
+    {{msg}}
+    <child1 @test1="test1" @test2="test2"/>
   </div>
 </template>
 
@@ -12,18 +12,19 @@ export default {
   name: 'App',
   data() {
     return {
-      username: 'ifer',
-      age: 18
+      msg: 'H'
     }
   },
   components: {
     Child1
   },
   methods: {
-    changeData() {
-      this.username = '~~~~~~~~';
-      this.age = '188888888';
-    }
+   test1(msg) {
+     this.msg = msg;
+   },
+   test2() {
+     console.log('test2');
+   }
   }
   
 }
