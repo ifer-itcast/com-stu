@@ -1,17 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <child1 @changeData="changeData"/>
+    <child2 :msg="msg"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Child1 from '@/components/Child1'
+import Child2 from '@/components/Child2'
 export default {
   name: 'App',
+  data() {
+    return {
+      msg: 'Hello World'
+    };
+  },
   components: {
-    HelloWorld
+    Child1,
+    Child2
+  },
+  methods: {
+    changeData(childData) {
+      // 直接修改自己的数据，另一个儿子中的数据自然就变了
+      this.msg = childData
+    }
   }
 }
 </script>
