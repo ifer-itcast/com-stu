@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <child ref="c"/>
+    <button @click="handleClick">change</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// 需求：父改子的数据
+import Child from './components/Child.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Child
+  },
+  methods: {
+    handleClick() {
+      // 操作数据
+      // this.$refs.c.msg = '~~~~~~';
+      this.$refs.c.changeData();
+    }
   }
 }
 </script>
