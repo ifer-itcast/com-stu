@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    Hello
+    <child :msg="msg"/>
+
+    <!-- 想改变传递过去的数据，直接在自己的组件里面修改就好啦 -->
+    <button @click="msg = 'xxx'">修改</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Child from '@/components/Child'
 export default {
   name: 'App',
+  data() {
+    return {
+      msg: 'Hello World'
+    }
+  },
   components: {
-    HelloWorld
+    Child
   }
 }
 </script>
